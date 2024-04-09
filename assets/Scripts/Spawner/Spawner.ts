@@ -20,7 +20,7 @@ export class Spawner extends Component {
 
     private _NewEnemyWave(): void{
         console.log("New enemy wave!");
-        this._currentWave += 1;
+        //this._currentWave += 1;
 
     }
 }
