@@ -3,6 +3,7 @@ const { ccclass, property } = _decorator;
 
 @ccclass('Timer')
 export class Timer extends Component {
+    // I may to put this class into the Tool folder
 
     private _time: number = 0;
     private _timerUpdateTime: number = 1;
