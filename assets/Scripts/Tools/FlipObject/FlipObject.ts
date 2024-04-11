@@ -3,7 +3,7 @@ import { Directions } from './Direction/EDirections';
 const { ccclass, property } = _decorator;
 
 @ccclass('FlipObject')
-export class FlipObject{
+export abstract class FlipObject{
     public static FlipX(node: Node, direction: Directions){
         let nodeScale: Vec3 = node.getScale();
         switch(direction){
