@@ -21,8 +21,8 @@ export class Player extends Component {
     protected update(deltaTime: number) {
         let movementX = this._iInputManager.movementVector.x * this._speed * deltaTime;
         let movementY = this._iInputManager.movementVector.y * this._speed * deltaTime;
+        FlipObject.FlipXByMove(this.node, movementX);
         this._MovePlayr(movementX, movementY);
-        FlipObject.FlipX(this.node, movementX);
     }
 
     private _MovePlayr(movementX: number, movementY: number): void{
