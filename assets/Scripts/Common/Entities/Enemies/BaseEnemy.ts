@@ -1,14 +1,15 @@
 import { _decorator, CCFloat, CCInteger, Component, find, Node, Vec2, Vec3 } from 'cc';
-import { FlipObject } from '../../Tools/FlipObject/FlipObject';
+import { FlipObject } from '../../../Utils/FlipObject/FlipObject';
+import { Entity } from '../Entity';
 const { ccclass, property } = _decorator;
 
 @ccclass('BaseEnemy')
-export abstract class BaseEnemy extends Component {
-    @property({visible: true, type: CCInteger}) private _hp: number;
-    @property({visible: true, type: CCFloat}) private _speed: number;
-    @property({visible: true, type: CCFloat}) private _invulnerabilityTime: number;
-    @property({visible: true, type: CCInteger}) private _damage: number;
-    @property({visible: true, type: CCFloat}) private _timeToInpact: number;
+export abstract class BaseEnemy extends Entity {
+    @property({visible: true, type: CCInteger}) private _hp: number = 0;
+    @property({visible: true, type: CCFloat}) private _speed: number = 0;
+    @property({visible: true, type: CCFloat}) private _invulnerabilityTime: number = 0;
+    @property({visible: true, type: CCInteger}) private _damage: number = 0;
+    @property({visible: true, type: CCFloat}) private _timeToInpact: number = 0;
 
     private _playerNode: Node;
 
@@ -16,18 +17,9 @@ export abstract class BaseEnemy extends Component {
         this._playerNode = this.GetPlayerNode();
     }
 
-    protected update(dt: number): void {
-        this._FlipEnemy();
-    }
-
-    protected EnemyBehavior(dt: number);
-    protected EnemyBehavior(): void{
-
-    }
-
-    private _FlipEnemy(): void{
-        let horizontalMove: number = this._playerNode.position.x - this.node.position.x;
-        FlipObject.FlipXByMove(this.node, horizontalMove * (-1));
+    protected EntityBehavior(dt: number): void {
+        this.movementXDirection = (this._playerNode.position.x - this.node.position.x) * (-1);
+        console.log(this.movementXDirection);
     }
 
     public TakeDamage(damage: number): void{

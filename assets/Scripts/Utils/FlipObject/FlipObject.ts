@@ -15,7 +15,7 @@ export abstract class FlipObject{
                 break;
         }
     }
-    public static FlipXByMove(node: Node, movementX:number){
+    public static FlipXByMovement(node: Node, movementX:number){
         if(movementX < -0.1){
             this.FlipX(node, Directions.Left);
         } else if(movementX > 0.1){

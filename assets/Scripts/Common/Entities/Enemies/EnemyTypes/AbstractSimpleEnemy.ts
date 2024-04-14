@@ -6,10 +6,11 @@ const { ccclass, property } = _decorator;
 export abstract class AbstractSimpleEnemy extends BaseEnemy {
     protected update(dt: number): void {
         super.update(dt);
-        this.EnemyBehavior(dt);
+        this.EntityBehavior(dt);
     }
 
-    protected EnemyBehavior(dt: number): void {
+    protected EntityBehavior(dt: number): void {
+        super.EntityBehavior(dt);
         var player = this.GetPlayerNode();
         if(player){
             this.Movemenet(player.getWorldPosition(), dt)

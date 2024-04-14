@@ -7,9 +7,9 @@ const { ccclass, property, menu } = _decorator;
 @menu('Spawner/Instruction')
 export class SpawnerInstruction extends Component {
     //idk why it shows only one class in the inspector or nothing. 
-    @property({visible: true, type: [WaveInfo]}) private _waveInfos: WaveInfo[] = [];
+    @property({visible: true, type: [WaveInfo]}) private _waveInfo: WaveInfo[] = [];
 
     public get waveInfos(): WaveInfo[]{
-        return this._waveInfos;
+        return this._waveInfo;
     }
 }
