@@ -19,7 +19,6 @@ export abstract class BaseEnemy extends Entity {
 
     protected EntityBehavior(dt: number): void {
         this.movementXDirection = (this._playerNode.position.x - this.node.position.x) * (-1);
-        console.log(this.movementXDirection);
     }
 
     public TakeDamage(damage: number): void{

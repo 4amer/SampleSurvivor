@@ -3,8 +3,8 @@ const { ccclass, property } = _decorator;
 
 @ccclass('EnemyAndDelay')
 export class EnemyAndDelay{
-    @property({visible: true, type: Prefab}) private _enemy: Prefab;
-    @property({visible: true, type: CCFloat}) private _spawnDelay: number;
+    @property({visible: true, type: Prefab}) private _enemy: Prefab = null;
+    @property({visible: true, type: CCFloat}) private _spawnDelay: number = 0.1;
 
     public get enemy(): Prefab{
         return this._enemy;
@@ -14,5 +14,3 @@ export class EnemyAndDelay{
         return this._spawnDelay;
     }
 }
-
-

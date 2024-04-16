@@ -13,8 +13,8 @@ export class Timer extends Component {
         this.schedule(() => {
             this._time += 1;
             if(this._time >= seconds){
-                callback();
                 this.StopTimer();
+                callback();
             }
         }, this._timerUpdateTime)
     }
